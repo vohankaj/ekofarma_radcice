@@ -5,6 +5,7 @@ import uvodImg from './assets/uvod.jpg';
 import onasImg from './assets/onas.jpg';
 import hoveziImg from './assets/hovezi.jpg';
 import pastvaImg from './assets/pastva.jpg';
+import cenikImg from './assets/cenik.jpg';
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md border-b border-farm-leaf/10">
@@ -205,9 +206,14 @@ const Products = () => {
         ))}
       </div>
       <div className="mt-20 text-center">
-        <button className="border-2 border-farm-emerald text-farm-emerald px-12 py-4 rounded-full font-bold hover:bg-farm-emerald hover:text-white transition-all uppercase tracking-widest text-sm">
+        <a
+          href={cenikImg}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block border-2 border-farm-emerald text-farm-emerald px-12 py-4 rounded-full font-bold hover:bg-farm-emerald hover:text-white transition-all uppercase tracking-widest text-sm"
+        >
           Kompletní nabídka
-        </button>
+        </a>
       </div>
     </section>
   );
