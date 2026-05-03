@@ -165,7 +165,7 @@ const Products = () => {
   const products = [
     { 
       title: 'Hovězí z pastvin', 
-      desc: 'Prémiové vyzrálé hovězí maso z našich býčků, kteří vyrůstají v naprosté volnosti na horských lukách.', 
+      desc: 'Premiové vyzrálé maso z našeho skotu, který vyrůstá v naprosté volnosti na horských loukách.', 
       img: hoveziImg 
     },
     { 
