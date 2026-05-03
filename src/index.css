@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+
+  --color-farm-bone: #f9faf8;
+  --color-farm-cream: #f2f5f1;
+  --color-farm-leaf: #76a581;
+  --color-farm-forest: #1b261b;
+  --color-farm-emerald: #3d5a35;
+  --color-farm-clay: #a67c52;
+  --color-farm-brown: #3d2b1f;
+}
+
+@layer base {
+  body {
+    @apply bg-farm-bone text-farm-forest font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, .serif {
+    @apply font-serif text-farm-forest;
+  }
+}
+
+.bg-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
