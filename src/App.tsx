@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBasket, Heart, Leaf, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import uvodImg from './assets/uvod.jpg';
@@ -110,7 +111,7 @@ const Features = () => (
           <ShoppingBasket className="text-farm-emerald" size={36} />
         </div>
         <h3 className="text-3xl font-serif mb-4">Z dvoru přímo k vám</h3>
-        <p className="text-farm-forest/70 leading-relaxed font-light">Prodej přímo z farmy zaručuje maximální čerstvost a férovou cenu pro vás i pro pěstitele.</p>
+        <p className="text-farm-forest/70 leading-relaxed font-light">Prodej přímo z farmy zaručuje maximální čerstvost a férovou cenu pro vás.</p>
       </div>
     </div>
   </section>
