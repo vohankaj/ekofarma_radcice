@@ -258,7 +258,9 @@ const Contact = () => {
                 <Mail className="text-farm-leaf" size={28} />
               </div>
               <div>
-                <h4 className="font-serif text-2xl text-white">ekofarmaradcice@seznam.cz</h4>
+                <a href="mailto:ekofarmaradcice@seznam.cz" className="font-serif text-2xl text-white hover:text-farm-emerald transition-colors">
+                  ekofarmaradcice@seznam.cz
+                </a>
                 <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">Napište nám e-mail</p>
               </div>
             </div>
