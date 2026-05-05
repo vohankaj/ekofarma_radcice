@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useForm, ValidationError } from '@formspree/react';
 import { ShoppingBasket, Heart, Leaf, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import uvodImg from './assets/uvod.jpg';
 import onasImg from './assets/onas.jpg';
@@ -219,81 +220,116 @@ const Products = () => {
   );
 };
 
-const Contact = () => (
-  <section id="contact" className="py-32 bg-farm-forest text-white overflow-hidden relative">
-    <div className="absolute top-0 right-0 w-1/3 h-full bg-farm-emerald/10 skew-x-12 transform translate-x-1/2" />
-    <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 relative z-10">
-      <div>
-        <span className="text-farm-leaf text-sm uppercase tracking-[0.3em] font-bold mb-6 block">Kontaktujte nás</span>
-        <h2 className="text-6xl font-serif text-white mb-10 leading-tight">Pojeďte za námi <br /> na venkov</h2>
-        <p className="text-xl text-white/70 mb-16 font-light leading-relaxed max-w-md">
-          Najdete nás v malebné části Liberec-Radčice. Přijeďte se podívat, jak hospodaříme v drsné ale krásné přírodě na úpatí Jizerských hor.
-        </p>
-        
-        <div className="space-y-10">
-          <div className="flex gap-8 items-center">
-            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
-              <MapPin className="text-farm-leaf" size={28} />
-            </div>
-            <div>
-              <h4 className="font-serif text-2xl text-white">Raspenavská 42</h4>
-              <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">460 31 Liberec 32</p>
-            </div>
-          </div>
-          <div className="flex gap-8 items-center">
-            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
-              <Phone className="text-farm-leaf" size={28} />
-            </div>
-            <div>
-              <h4 className="font-serif text-2xl text-white">+420 703 694 058</h4>
-              <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">Volejte nám</p>
-            </div>
-          </div>
-          <div className="flex gap-8 items-center">
-            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
-              <Mail className="text-farm-leaf" size={28} />
-            </div>
-            <div>
-              <h4 className="font-serif text-2xl text-white">ekofarmaradcice@seznam.cz</h4>
-              <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">Napište nám e-mail</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-16 flex gap-6">
-          <a href="https://www.facebook.com/profile.php?id=100088804026849" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-farm-forest transition-all border border-white/10">
-            <Facebook size={24} />
-          </a>
-          <a href="https://www.instagram.com/ekofarma_radcice/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-farm-forest transition-all border border-white/10">
-            <Instagram size={24} />
-          </a>
-        </div>
-      </div>
-      
-      <div className="bg-white p-12 md:p-16 rounded-[60px] shadow-2xl text-farm-forest">
-        <h3 className="text-4xl font-serif mb-10 text-center">Napište nám</h3>
-        <form className="space-y-8">
-          <div className="space-y-3">
-            <label className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">Vaše Jméno</label>
-            <input type="text" className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20" placeholder="Jan Novák" />
-          </div>
-          <div className="space-y-3">
-            <label className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">E-mailová adresa</label>
-            <input type="email" className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20" placeholder="jan@priklad.cz" />
-          </div>
-          <div className="space-y-3">
-            <label className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">Vaše zpráva</label>
-            <textarea rows={5} className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20" placeholder="O co máte zájem?" />
-          </div>
-          <button className="w-full bg-farm-emerald text-white py-6 rounded-2xl font-bold hover:bg-farm-forest transition-all uppercase tracking-[0.2em] text-sm shadow-xl shadow-farm-emerald/20 active:scale-95">
-            Odeslat poptávku
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-);
+const Contact = () => {
+  const [state, handleSubmit] = useForm('mnjwdkbr');
 
+  return (
+    <section id="contact" className="py-32 bg-farm-forest text-white overflow-hidden relative">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-farm-emerald/10 skew-x-12 transform translate-x-1/2" />
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 relative z-10">
+        <div>
+          <span className="text-farm-leaf text-sm uppercase tracking-[0.3em] font-bold mb-6 block">Kontaktujte nás</span>
+          <h2 className="text-6xl font-serif text-white mb-10 leading-tight">Pojeďte za námi <br /> na venkov</h2>
+          <p className="text-xl text-white/70 mb-16 font-light leading-relaxed max-w-md">
+            Najdete nás v malebné části Liberec-Radčice. Přijeďte se podívat, jak hospodaříme v drsné ale krásné přírodě na úpatí Jizerských hor.
+          </p>
+          
+          <div className="space-y-10">
+            <div className="flex gap-8 items-center">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
+                <MapPin className="text-farm-leaf" size={28} />
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl text-white">Raspenavská 42</h4>
+                <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">460 31 Liberec 32</p>
+              </div>
+            </div>
+            <div className="flex gap-8 items-center">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
+                <Phone className="text-farm-leaf" size={28} />
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl text-white">+420 703 694 058</h4>
+                <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">Volejte nám</p>
+              </div>
+            </div>
+            <div className="flex gap-8 items-center">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
+                <Mail className="text-farm-leaf" size={28} />
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl text-white">ekofarmaradcice@seznam.cz</h4>
+                <p className="text-white/50 font-light uppercase tracking-widest text-xs mt-1">Napište nám e-mail</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 flex gap-6">
+            <a href="https://www.facebook.com/profile.php?id=100088804026849" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-farm-forest transition-all border border-white/10">
+              <Facebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/ekofarma_radcice/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-farm-forest transition-all border border-white/10">
+              <Instagram size={24} />
+            </a>
+          </div>
+        </div>
+        
+        <div className="bg-white p-12 md:p-16 rounded-[60px] shadow-2xl text-farm-forest">
+          <h3 className="text-4xl font-serif mb-10 text-center">Napište nám</h3>
+          {state.succeeded ? (
+            <p className="text-center text-farm-emerald font-semibold text-lg">Poptávka byla odeslána. Děkujeme!</p>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-3">
+                <label htmlFor="name" className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">Vaše Jméno</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20"
+                  placeholder="Jan Novák"
+                />
+                <ValidationError field="name" errors={state.errors} />
+              </div>
+              <div className="space-y-3">
+                <label htmlFor="email" className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">E-mailová adresa</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20"
+                  placeholder="jan@priklad.cz"
+                />
+                <ValidationError field="email" errors={state.errors} />
+              </div>
+              <div className="space-y-3">
+                <label htmlFor="message" className="text-xs uppercase tracking-widest text-farm-forest/40 font-bold ml-1">Vaše zpráva</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full bg-farm-cream border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-farm-emerald transition-all placeholder:text-farm-forest/20"
+                  placeholder="O co máte zájem?"
+                />
+                <ValidationError field="message" errors={state.errors} />
+              </div>
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full bg-farm-emerald text-white py-6 rounded-2xl font-bold hover:bg-farm-forest transition-all uppercase tracking-[0.2em] text-sm shadow-xl shadow-farm-emerald/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {state.submitting ? 'Odesílám…' : 'Odeslat poptávku'}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
 const Footer = () => (
   <footer className="bg-white border-t border-farm-leaf/10 py-24 text-farm-forest">
     <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
